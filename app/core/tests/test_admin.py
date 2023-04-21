@@ -1,7 +1,7 @@
-from django.test import TestCase   # for testing
-from django.contrib.auth import get_user_model  # to get User Model info from auth
+from django.test import TestCase
+from django.contrib.auth import get_user_model
 from django.urls import reverse
-from django.test import Client  # to visit a page from terminal for testing
+from django.test import Client
 
 
 class AdminSiteTests(TestCase):
@@ -24,8 +24,8 @@ class AdminSiteTests(TestCase):
         )
 
     def test_users_lists(self):
-        url = reverse('admin:core_user_changelist')  # get all user
-        res = self.client.get(url)  # get all users from database to test
+        url = reverse('admin:core_user_changelist')
+        res = self.client.get(url)
 
         # check is the any name & email
         self.assertContains(res, self.user.name)
